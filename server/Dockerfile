@@ -1,7 +1,6 @@
-FROM node:16-alpine
+FROM node:14.14.0-alpine
 WORKDIR '/app'
 COPY ./package.json .
 RUN npm install --verbose
 COPY . .
-RUN chmod -R 777 /app/node_modules
 CMD ["npm", "run", "start"]
