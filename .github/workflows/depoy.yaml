@@ -13,10 +13,10 @@ jobs:
       - run: docker build -t aa122aa/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true aa122aa/react-test npm test
  
-      - run: docker build -t aa122aa/multi-client-10-14 ./client
-      - run: docker build -t aa122aa/multi-nginx-10-14 ./nginx
-      - run: docker build -t aa122aa/multi-server-10-14 ./server
-      - run: docker build -t aa122aa/multi-worker-10-14 ./worker
+      - run: docker build --platform linux/arm64 -t aa122aa/multi-client-10-14 ./client
+      - run: docker build --platform linux/arm64 -t aa122aa/multi-nginx-10-14 ./nginx
+      - run: docker build --platform linux/arm64 -t aa122aa/multi-server-10-14 ./server
+      - run: docker build --platform linux/arm64 -t aa122aa/multi-worker-10-14 ./worker
  
       - run: docker push aa122aa/multi-client-10-14
       - run: docker push aa122aa/multi-nginx-10-14
