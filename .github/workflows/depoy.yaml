@@ -20,10 +20,10 @@ jobs:
       - name: run test
         run: docker run -e CI=true aa122aa/react-test npm test
 
-      - run: docker buildx build -t multi-client-10-14 --push --platform=linux/arm64 ./client
-      - run: docker buildx build -t multi-nginx-10-14 --push --platform=linux/arm64 ./nginx
-      - run: docker buildx build -t multi-server-10-14 --push --platform=linux/arm64 ./server
-      - run: docker buildx build -t multi-worker-10-14 --push --platform=linux/arm64 ./worker
+      - run: docker buildx build -t aa122aa/multi-client-10-14:latest --push --platform=linux/arm64 ./client
+      - run: docker buildx build -t aa122aa/multi-nginx-10-14:latest --push --platform=linux/arm64 ./nginx
+      - run: docker buildx build -t aa122aa/multi-server-10-14:latest --push --platform=linux/arm64 ./server
+      - run: docker buildx build -t aa122aa/multi-worker-10-14:latest --push --platform=linux/arm64 ./worker
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
